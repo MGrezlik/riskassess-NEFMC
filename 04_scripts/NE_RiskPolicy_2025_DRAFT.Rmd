@@ -1,0 +1,22 @@
+---
+bibliography: NEriskpolicy.bib
+csl: plos.csl
+fontsize: 10pt
+geometry: left=2cm, right=2cm, top=2cm, bottom=3cm, footskip = .5cm
+link-citations: yes
+output:
+  bookdown::pdf_document2:
+    includes: 
+       in_header: latex/header.tex
+    keep_tex: true
+  bookdown::html_document2: 
+    toc: true
+    toc_float: true
+    code_fold: hide
+  bookdown::word_document2:
+    toc: true
+subparagraph: yes
+urlcolor: blue
+---
+
+
