@@ -1,5 +1,5 @@
 ---
-bibliography: NEriskpolicy.bib
+# bibliography: NEriskpolicy.bib
 csl: plos.csl
 fontsize: 10pt
 geometry: left=2cm, right=2cm, top=2cm, bottom=3cm, footskip = .5cm
@@ -19,4 +19,106 @@ subparagraph: yes
 urlcolor: blue
 ---
 
+```{r setup, include=FALSE}
 
+# library(tint)
+# # invalidate cache when the package version changes
+# knitr::opts_chunk$set(tidy = FALSE, cache.extra = packageVersion('tint'))
+# options(htmltools.dir.version = FALSE)
+
+#Default Rmd options
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      #dev = "cairo_pdf",
+                      warning = FALSE,
+                      fig.width = 4,
+                      fig.asp = 0.45,
+                      fig.align = 'center'
+                      ) #allows for inserting R code into captions
+
+#Plotting and data libraries
+#remotes::install_github("noaa-edab/ecodata@0.1.0") #change to 2020 ecodata version for release
+library(tidyverse)
+library(tidyr)
+library(ecodata)
+library(here)
+library(kableExtra)
+library(patchwork)
+
+```
+
+
+# New England Risk Policy
+
+
+
+## Potential indicators for Climate and Ecosystem Considerations
+
+**American plaice indicators**
+
+```{r plaice_eco, echo=FALSE}
+
+ecodata::plot_bottom_temp(report = "NewEngland")
+
+```
+
+**Atlantic cod indicators**
+
+```{r cod_eco, echo=FALSE}
+source(here::here('04_scripts/cod_ecosystem_indicators.R'))
+
+```
+
+**Atlantic herring indicators**
+
+```{r herring_eco, echo=FALSE}
+
+source(here::here('04_scripts/herring_ecosystem_indicators.R'))
+
+```
+
+\*\* Georges Bank Yellowtail flounder indicators\*\*
+
+```{r gb_yt_eco, echo=FALSE}
+
+ecodata::plot_bottom_temp(report = "NewEngland")
+
+```
+
+\*\* Southern New England Yellowtail flounder indicators\*\*
+
+```{r sne_yt_eco, echo=FALSE}
+
+ecodata::plot_cold_pool(report = "MidAtlantic", varName = 'persistence')
+
+```
+
+## Potential Indicators for Commercial Fishery Characterization
+
+**Commercial fishery characterization indicators**
+
+```{r comm, fig.cap='Effective Shannon index of NE commercial fisheries' ,echo=FALSE}
+
+# call in commercial fishery diversity data
+data <- ecodata::commercial_div
+
+# plot fleet diversity in revenue for New England
+data |> 
+  dplyr::filter(Var == "Fleet diversity in revenue") |>
+  dplyr::filter(EPU == "NE") |>
+  #plot Value by Time
+  ggplot2::ggplot(ggplot2::aes(x = Time, y = Value)) +
+  ggplot2::geom_line() +
+  ggplot2::geom_point() +
+  ggplot2::ylab("Effective Shannon index")
+```
+
+## Potential Indicators for Recreational Fishery Characterization
+
+**Recreational fishery characterization indicators**
+
+```{r rec, echo=FALSE}
+
+ecodata::plot_recdat(report = "NewEngland", varName = 'effortdiversity')
+
+```

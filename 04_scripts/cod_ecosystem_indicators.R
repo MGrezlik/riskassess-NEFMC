@@ -10,6 +10,6 @@
 ## Significant negative correlation with log age-1 cod (i.e. higher heatwave index results in lower recruitment)
 
 ecodata::plot_heatwave(report = "NewEngland")
-ecodata::plot_heatwave(report = "MidAtlantic")
+# ecodata::plot_heatwave(report = "MidAtlantic")
 
 # need to figure out how to plot cumulative
