@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.3.3)  20 MAY 2025 11:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.3.3)  20 MAY 2025 15:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -543,187 +543,26 @@ LaTeX Warning: Command \underbar  has changed.
 LaTeX Warning: Command \underline  has changed.
                Check if current package is valid.
 
-) (c:/Users/maxwell.grezlik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/bookmark/bookmark.sty
-Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
-(c:/Users/maxwell.grezlik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
-File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
-\BKM@id=\count328
-))
-Package hyperref Info: Option `colorlinks' set `true' on input line 148.
-(c:/Users/maxwell.grezlik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count329
-\l__pdf_internal_box=\box66
-) (./NE_RiskPolicy_2025_DRAFT.aux)
-\openout1 = `NE_RiskPolicy_2025_DRAFT.aux'.
+)
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-(c:/Users/maxwell.grezlik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
-(c:/Users/maxwell.grezlik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
-))
-*geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
-*geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
-* paper: <default>
-* layout: <same size as paper>
-* layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: 
-* h-part:(L,W,R)=(56.9055pt, 500.484pt, 56.9055pt)
-* v-part:(T,H,B)=(56.9055pt, 652.70622pt, 85.35826pt)
-* \paperwidth=614.295pt
-* \paperheight=794.96999pt
-* \textwidth=500.484pt
-* \textheight=652.70622pt
-* \oddsidemargin=-15.36449pt
-* \evensidemargin=-15.36449pt
-* \topmargin=-52.36449pt
-* \headheight=40.0pt
-* \headsep=25.0pt
-* \topskip=10.0pt
-* \footskip=14.22636pt
-* \marginparwidth=65.0pt
-* \marginparsep=11.0pt
-* \columnsep=10.0pt
-* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
-* \hoffset=0.0pt
-* \voffset=0.0pt
-* \mag=1000
-* \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
-* \@reversemarginfalse
-* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+! LaTeX Error: File `multirow.sty' not found.
 
-Package soulpos Info: Loading soulutf8 on input line 153.
-(c:/Users/maxwell.grezlik/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/soul/soulutf8.sty
-Package: soulutf8 2023-06-14 v3.1 Permit use of UTF-8 characters in soul (HO)
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
 
-Package soulutf8 Warning: This package is obsolete,
-(soulutf8)                use the soul package directly. 
-(soulutf8)                 on input line 29.
-
-) (c:/Users/maxwell.grezlik/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/soul/soul.sty
-Package: soul 2023-06-14 v3.1 Permit use of UTF-8 characters in soul (HO)
-(c:/Users/maxwell.grezlik/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/soul/soul-ori.sty
-Package: soul-ori 2023-06-14 v3.1 letterspacing/underlining (mf)
-\SOUL@word=\toks33
-\SOUL@lasttoken=\toks34
-\SOUL@syllable=\toks35
-\SOUL@cmds=\toks36
-\SOUL@buffer=\toks37
-\SOUL@token=\toks38
-\SOUL@syllgoal=\dimen194
-\SOUL@syllwidth=\dimen195
-\SOUL@charkern=\dimen196
-\SOUL@hyphkern=\dimen197
-\SOUL@dimen=\dimen198
-\SOUL@dimeni=\dimen199
-\SOUL@minus=\count330
-\SOUL@comma=\count331
-\SOUL@apo=\count332
-\SOUL@grave=\count333
-\SOUL@spaceskip=\skip93
-\SOUL@ttwidth=\dimen256
-\SOUL@uldp=\dimen257
-\SOUL@ulht=\dimen258
-))
-Package hyperref Info: Link coloring ON on input line 153.
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: subfig package v1.3 is loaded.
-Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for T1+lmss on input line 158.
-(c:/Users/maxwell.grezlik/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmss.fd
-File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (./NE_RiskPolicy_2025_DRAFT.toc)
-\tf@toc=\write4
-\openout4 = `NE_RiskPolicy_2025_DRAFT.toc'.
-
-<NE_RiskPolicy_2025_DRAFT_files/figure-latex/plaice_eco-1.pdf, id=4, 469.755pt x 325.215pt>
-File: NE_RiskPolicy_2025_DRAFT_files/figure-latex/plaice_eco-1.pdf Graphic file (type pdf)
-<use NE_RiskPolicy_2025_DRAFT_files/figure-latex/plaice_eco-1.pdf>
-Package pdftex.def Info: NE_RiskPolicy_2025_DRAFT_files/figure-latex/plaice_eco-1.pdf  used on input line 160.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<NE_RiskPolicy_2025_DRAFT_files/figure-latex/gb_yt_eco-1.pdf, id=5, 469.755pt x 325.215pt>
-File: NE_RiskPolicy_2025_DRAFT_files/figure-latex/gb_yt_eco-1.pdf Graphic file (type pdf)
-<use NE_RiskPolicy_2025_DRAFT_files/figure-latex/gb_yt_eco-1.pdf>
-Package pdftex.def Info: NE_RiskPolicy_2025_DRAFT_files/figure-latex/gb_yt_eco-1.pdf  used on input line 162.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 164.
-[1{c:/Users/maxwell.grezlik/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/maxwell.grezlik/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}
-
-\openout3 = `NE_RiskPolicy_2025_DRAFT.upa'.
-
- <./NE_RiskPolicy_2025_DRAFT_files/figure-latex/plaice_eco-1.pdf>]
-<NE_RiskPolicy_2025_DRAFT_files/figure-latex/sne_yt_eco-1.pdf, id=25, 469.755pt x 325.215pt>
-File: NE_RiskPolicy_2025_DRAFT_files/figure-latex/sne_yt_eco-1.pdf Graphic file (type pdf)
-<use NE_RiskPolicy_2025_DRAFT_files/figure-latex/sne_yt_eco-1.pdf>
-Package pdftex.def Info: NE_RiskPolicy_2025_DRAFT_files/figure-latex/sne_yt_eco-1.pdf  used on input line 164.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<NE_RiskPolicy_2025_DRAFT_files/figure-latex/comm-1.pdf, id=26, 469.755pt x 325.215pt>
-File: NE_RiskPolicy_2025_DRAFT_files/figure-latex/comm-1.pdf Graphic file (type pdf)
-<use NE_RiskPolicy_2025_DRAFT_files/figure-latex/comm-1.pdf>
-Package pdftex.def Info: NE_RiskPolicy_2025_DRAFT_files/figure-latex/comm-1.pdf  used on input line 168.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-
-[2 <./NE_RiskPolicy_2025_DRAFT_files/figure-latex/gb_yt_eco-1.pdf>]
-
-[3 <./NE_RiskPolicy_2025_DRAFT_files/figure-latex/sne_yt_eco-1.pdf>]
-<NE_RiskPolicy_2025_DRAFT_files/figure-latex/rec-1.pdf, id=52, 469.755pt x 325.215pt>
-File: NE_RiskPolicy_2025_DRAFT_files/figure-latex/rec-1.pdf Graphic file (type pdf)
-<use NE_RiskPolicy_2025_DRAFT_files/figure-latex/rec-1.pdf>
-Package pdftex.def Info: NE_RiskPolicy_2025_DRAFT_files/figure-latex/rec-1.pdf  used on input line 172.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-
-[4 <./NE_RiskPolicy_2025_DRAFT_files/figure-latex/comm-1.pdf>]
-
-[5 <./NE_RiskPolicy_2025_DRAFT_files/figure-latex/rec-1.pdf>] (./NE_RiskPolicy_2025_DRAFT.aux * soulpos - computing points - it may take a few seconds *
-\openout3 = `NE_RiskPolicy_2025_DRAFT.upb'.
-
-(./NE_RiskPolicy_2025_DRAFT.upa))
- ***********
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-01-18>
- ***********
- ) 
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.140 \usepackage
+                 {wrapfig}^^M 
 Here is how much of TeX's memory you used:
- 18896 strings out of 475171
- 342774 string characters out of 5763734
- 757370 words of memory out of 5000000
- 41619 multiletter control sequences out of 15000+600000
- 585813 words of font info for 47 fonts, out of 8000000 for 9000
+ 17894 strings out of 475171
+ 320537 string characters out of 5763734
+ 736088 words of memory out of 5000000
+ 40680 multiletter control sequences out of 15000+600000
+ 562590 words of font info for 38 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 85i,13n,133p,677b,469s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/Users/maxwell.grezlik/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/maxwell.grezlik/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Users/maxwell.grezlik/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss17.pfb><c:/Users/maxwell.grezlik/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/Users/maxwell.grezlik/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsso10.pfb>
-Output written on NE_RiskPolicy_2025_DRAFT.pdf (5 pages, 158025 bytes).
-PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
- 76 compressed objects within 1 object stream
- 8 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 85i,0n,133p,677b,385s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
+!  ==> Fatal error occurred, no output PDF file produced!

@@ -47,14 +47,17 @@ library(patchwork)
 
 ```
 
-
 # New England Risk Policy
 
-
+The Risk Policy Statement and Concept (2025) outlines how the Council intends to operationalize environmental and socioeconomic considerations in management. The Council also highlights how they anticipate organizations, including the Northeast Fisheries Science Center (NEFSC), contributing to this effort. The NEFSC is expected to contribute through continued updates of the State of the Ecosystem report, and further development of risk indicators. Risk Policy Factors developed by the Council consider 1. Stock Status and Uncertainty, 2. Climate and Ecosystem Considerations, and 3. Economic and Community Importance. Factors related to Stock Status and Uncertainty are derived from stock assessments. Here we demonstrate how indicators from the State of the Ecosystem report and indicators developed for research track assessments could inform Climate and Ecosystem Considerations and Economic and Community Importance.
 
 ## Potential indicators for Climate and Ecosystem Considerations
 
+In developing indicators for Climate and Ecosystem Considerations, we prioritized indicators with a statistically significant, mechanistic correlation with the life history they were designed to assess. We prioritized indicators which have not been included in the stock assessment to date to avoid redundant consideration of the indicator in management advice. We prioritized indicators from Term of Reference 1 (ToR1) from research track stock assessments as they have been collaboratively developed with stock assessment working groups and peer reviewed.
+
 **American plaice indicators**
+
+A research track assessment of American plaice was completed in 2022. TOR1 of the assessment identified multiple environmental indicators that are correlated with life history of American plaice. The most appropriate indicator for application in the Risk Policy is Annual mean bottom temperature anomaly. This indicator was significantly correlated with fall and spring mean latitude of American plaice in the NEFSC trawl survey, suggesting the species is distributed further North and East in warmer years compared to cooler years. Bottom temperature anomaly is regularly included in the State of the Ecosystem report. Details on this indicator are available in the SOE technical document.
 
 ```{r plaice_eco, echo=FALSE}
 
