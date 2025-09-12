@@ -6,44 +6,141 @@
 
 ## Indicator: Effective Shannon index of top n ports
 
-# ecodata::plot_comdat(report = "MidAtlantic", varName = "Fleet diversity in revenue")
+# unique(ecodata::commercial_div$Var)
+# unique(ecodata::commercial_div$EPU)
 
-# not sure why the above code is not working. I'll try in manually for now
+library(dplyr)
+library(ggplot2)
+library(ecodata)
+library(purrr)
+library(here)
+library(patchwork) 
 
+# 
+# Load and filter data ---------------
+#
 
-# call in commercial fishery diversity data
-data <- ecodata::commercial_div
+data_filtered <- ecodata::commercial_div |>
+  filter(Var == "Fleet diversity in revenue", EPU == "NE") |>
+  filter(!is.na(Time)) |>
+  arrange(Time)
 
-# plot fleet diversity in revenue for New England
-data |> 
-  dplyr::filter(Var == "Fleet diversity in revenue") |>
-  dplyr::filter(EPU == "NE") |>
-  #plot Value by Time
-  ggplot2::ggplot(ggplot2::aes(x = Time, y = Value)) +
-  ggplot2::geom_line() +
-  ggplot2::geom_point() +
-  ggplot2::ylab("Effective Shannon index")
+# Define terminal years (retrospective range)
+terminal_years <- 2022:2012
+
+output_dir <- here::here("05_images/")
+if (!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
+
+# 
+# Function to generate plot for a single terminal year -----------
+# 
+plot_for_terminal_year <- function(terminal_year) {
   
-# Above looks good but shows Effective Shannon index for all NE ports
+  years_window <- (terminal_year - 9):terminal_year
+  
+  recent_data <- data_filtered |>
+    filter(Time >= terminal_year - 9, Time <= terminal_year)
+  
+  # Fit linear model if possible
+  if (nrow(recent_data) >= 2) {
+    lm_fit <- lm(Value ~ Time, data = recent_data)
+    p_value <- summary(lm_fit)$coefficients["Time", "Pr(>|t|)"]
+  } else {
+    p_value <- NA
+  }
+  
+  p <- ggplot(data_filtered, aes(x = Time, y = Value)) +
+    geom_line() +
+    geom_point() +
+    ylab("Effective Shannon index") +
+    ggtitle(paste("Fleet Diversity in Revenue (NE) – Terminal Year:", terminal_year)) +
+    theme_minimal()
+  
+  if (!is.na(p_value) && p_value < 0.05) {
+    p <- p + geom_smooth(
+      data = recent_data,
+      method = "lm", se = FALSE, color = "red", size = 1
+    )
+  }
+  
+  return(p)
+}
 
-# Joe suggested using ecodata::engagement to get effective Shannon index of top n ports
+# 
+# Loop through terminal years, store trend info, save individual plots ------------
+# 
+trend_summary <- map_dfr(terminal_years, function(yr) {
+  
+  recent_data <- data_filtered |>
+    filter(Time >= yr - 9, Time <= yr)
+  
+  trend_direction <- "None"
+  slope <- NA
+  p_val <- NA
+  
+  if (nrow(recent_data) >= 2) {
+    lm_fit <- lm(Value ~ Time, data = recent_data)
+    coef_summary <- summary(lm_fit)$coefficients
+    slope <- coef_summary["Time", "Estimate"]
+    p_val <- coef_summary["Time", "Pr(>|t|)"]
+    
+    if (!is.na(p_val) && p_val < 0.05) {
+      trend_direction <- ifelse(slope > 0, "Positive", "Negative")
+    }
+  }
+  
+  # Save individual plot
+  plot <- plot_for_terminal_year(yr)
+  filename <- file.path(output_dir, paste0("fleet_trend_", yr, ".png"))
+  ggsave(filename, plot = plot, width = 8, height = 5, dpi = 300)
+  
+  # Return summary info
+  tibble(
+    Terminal_Year = yr,
+    Trend = trend_direction,
+    Slope = slope,
+    P_value = p_val
+  )
+})
 
-data <- ecodata::engagement
+# 
+# Add management risk signal------------------
+# 
+trend_summary <- trend_summary |>
+  mutate(Risk_Signal = case_when(
+    Trend == "Positive" ~ "Less Risk Averse",
+    Trend == "Negative" ~ "More Risk Averse",
+    TRUE ~ "No Change"
+  ))
 
-# filter for NE commercial data only
-com_data <- data |> 
-  dplyr::filter(Fishery == 'Commercial') |> 
-  dplyr::filter(EPU == 'NE')
+# 
+# Summarize trends across all terminal years ------------------
+# 
+trend_plot <- ggplot(trend_summary, aes(x = Terminal_Year, y = Trend, color = Risk_Signal)) +
+  geom_point(size = 3) +
+  scale_y_discrete(limits = c("Negative", "None", "Positive")) +
+  scale_x_continuous(breaks = seq(min(trend_summary$Terminal_Year),
+                                  max(trend_summary$Terminal_Year), 1)) +
+  theme_minimal() +
+  labs(
+    title = "Fleet Diversity Trend Calls by Terminal Year",
+    y = "Trend Direction",
+    x = "Terminal Year"
+  )
 
-# select top 3 ports by Eng
-com_data |> 
-  dplyr::arrange(dplyr::desc(Eng)) |> 
-  dplyr::slice_head(n =3)
+# Save summary plot
+ggsave(file.path(output_dir, "fleet_trend_summary.png"), plot = trend_plot, width = 8, height = 5, dpi = 300)
 
-# Top 3 ports are New Bedford, MA; Gloucester, MA; and Narragansett/Point Judith, RI
+# 
+# Optionally combine a few example terminal-year plots with the summary -----------------
+# 
+example_plots <- map(c(2022, 2017, 2012), plot_for_terminal_year)
+combined_plot <- wrap_plots(example_plots) / trend_plot + plot_layout(heights = c(2, 1))
 
-com_data |> 
-  dplyr::arrange(dplyr::desc(Eng)) |> 
-  dplyr::slice_head(n =5)
+ggsave(file.path(output_dir, "fleet_trend_combined.png"), plot = combined_plot, width = 12, height = 10, dpi = 300)
 
-# Top 5 would include Portland, ME; and Chatham, MA. Engagement falls off sharply when going to 5 ports
+# 
+# Save the trend summary table ------------------------
+# 
+write.csv(trend_summary, file.path(output_dir, "fleet_trend_summary.csv"), row.names = FALSE)
+

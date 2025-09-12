@@ -8,4 +8,18 @@
 ## Proxy for distribution shifts in response to temperature
 ## Significant positive correlation with fall and spring mean latitude (i.e. Plaice move Northeast with higher temperatures)
 
-ecodata::plot_bottom_temp(report = "NewEngland")
+ecodata::plot_bottom_temp_seasonal_gridded(report = "NewEngland")
+bt <- ecodata::bottom_temp
+
+# filter for just bt$Var == 'bottom temp anomaly in situ'
+insit <- dplyr::filter(bt, Var == 'bottom temp anomaly in situ')
+
+# ggplot a line graph with inst$Time on the x axis and insit$Value on the y axis
+library(ggplot2)
+ggplot(data = insit, aes(x = Time, y = Value)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Annual Mean Bottom Temperature Anomaly",
+       x = "Year",
+       y = "Bottom Temperature Anomaly (°C)") +
+  theme_minimal()

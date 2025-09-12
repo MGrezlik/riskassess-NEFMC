@@ -13,3 +13,7 @@ ecodata::plot_heatwave(report = "NewEngland")
 # ecodata::plot_heatwave(report = "MidAtlantic")
 
 # need to figure out how to plot cumulative
+
+
+ecodata::plot_zoo_abundance_anom(report = "NewEngland")
+

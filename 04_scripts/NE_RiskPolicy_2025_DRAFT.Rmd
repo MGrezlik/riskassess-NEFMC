@@ -102,18 +102,10 @@ ecodata::plot_cold_pool(report = "MidAtlantic", varName = 'persistence')
 
 ```{r comm, fig.cap='Effective Shannon index of NE commercial fisheries' ,echo=FALSE}
 
-# call in commercial fishery diversity data
-data <- ecodata::commercial_div
+# call in figures from 05_images
+source(here::here('04_scripts/comm_indicators.R'))
 
-# plot fleet diversity in revenue for New England
-data |> 
-  dplyr::filter(Var == "Fleet diversity in revenue") |>
-  dplyr::filter(EPU == "NE") |>
-  #plot Value by Time
-  ggplot2::ggplot(ggplot2::aes(x = Time, y = Value)) +
-  ggplot2::geom_line() +
-  ggplot2::geom_point() +
-  ggplot2::ylab("Effective Shannon index")
+print(trend_summary)
 ```
 
 ## Potential Indicators for Recreational Fishery Characterization
