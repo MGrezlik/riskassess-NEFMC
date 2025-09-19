@@ -144,3 +144,46 @@ ggsave(file.path(output_dir, "fleet_trend_combined.png"), plot = combined_plot, 
 # 
 write.csv(trend_summary, file.path(output_dir, "fleet_trend_summary.csv"), row.names = FALSE)
 
+
+# 
+# Threshold approach for Fleet Diversity -------------------------
+# 
+
+# Calculate mean and SD across full time series
+fleet_mean <- mean(data_filtered$Value, na.rm = TRUE)
+fleet_sd   <- sd(data_filtered$Value, na.rm = TRUE)
+
+# Classify each year by threshold
+fleet_threshold_class <- data_filtered |>
+  mutate(Risk_Signal_Threshold = case_when(
+    Value < fleet_mean - fleet_sd ~ "More Risk Averse",   # Below -1 SD
+    Value > fleet_mean + fleet_sd ~ "Less Risk Averse",   # Above +1 SD
+    TRUE ~ "No Change"
+  ))
+
+# Plot full time series with mean ±1 SD and classified points
+fleet_threshold_plot <- ggplot(fleet_threshold_class,
+                               aes(x = Time, y = Value,
+                                   color = Risk_Signal_Threshold)) +
+  geom_line(color = "grey60") +
+  geom_point(size = 2) +
+  geom_hline(yintercept = fleet_mean, linetype = "dashed", color = "black") +
+  geom_hline(yintercept = fleet_mean + fleet_sd, linetype = "solid", color = "blue") +
+  geom_hline(yintercept = fleet_mean - fleet_sd, linetype = "solid", color = "blue") +
+  scale_color_manual(values = c(
+    "More Risk Averse" = "red",
+    "No Change" = "black",
+    "Less Risk Averse" = "green"
+  )) +
+  theme_minimal() +
+  labs(
+    title = "Fleet Diversity in Revenue – Threshold Classification (NE)",
+    y = "Effective Shannon Index",
+    x = "Year",
+    color = "Risk Signal"
+  )
+
+# Save threshold plot
+ggsave(file.path(output_dir, "fleet_threshold_timeseries.png"),
+       plot = fleet_threshold_plot, width = 8, height = 5, dpi = 300)
+
